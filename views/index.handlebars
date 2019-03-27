@@ -1,0 +1,95 @@
+<div class="jumbotron">
+    <h1 class="display-4" style="font-family: 'Orbitron', sans-serif;">
+        <center>Eat-Da-Burger!</center</h1> <p class="lead">What kind of burger do you fancy?</p>
+
+            <img src="https://thumbs.gfycat.com/FlamboyantConcernedBorzoi-max-1mb.gif" alt="cheeseburger"
+                style="max-width: 300px" />
+
+</div>
+
+<div class="form-group">
+    <center>
+        {{!-- <div class="col-md-4 col-sm-12 col-xs-12"> --}}
+        <div class="col-md-11 col-md-offset-1 text-center" style="margin-top:25px">
+            <label for="burger" style="color: black; font-family: 'Orbitron', sans-serif; font-weight: bold;">
+                <font size="6">Order Your
+                    Burger!</font>
+            </label>
+            <form class="add-burger-form" action="/" method="POST">
+                <div class="form-group">
+                    <input type="text" id="newBurger" name="name" placeholder="Burger name">
+                    <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                    <br></br>
+            </form>
+    </center>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h1><u>BURGER LIST</u></h1>
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <div class="card-body" action="/{{this.id}}" method="POST"
+                    style="font-size: 14pt; padding: 10px; color: black; font-family: 'Orbitron', sans-serif;"
+                    font="color=orange">
+                    {{this.burger_name}}
+                </div>
+                {{/unless}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    </br>
+
+    {{!-- <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body" style="font-size: 14pt; padding: 10px; color: black; font-family: 'Orbitron', sans-serif;"></div>
+                <h2>DEVOUR IT!</h2>
+                <h3>Just hit the burger icon to devour.</h3>
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <div class="card-body" action="/{{this.id}}?_method=DELETE" method="POST">
+                    
+                    {{this.burger_name}}
+                    <span class="border border-primary"><input type="image" class="eat-icon"
+                            src="http://icons.iconarchive.com/icons/pixelkit/tasty-bites/256/hamburger-icon.png"
+                            alt="burger thumbnail" style="max-width: 50px" /></span>
+                </div>
+                {{/unless}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div> --}}
+    <div class="col-md-4 col-sm-12 col-xs-12">
+        <h2><u>DEVOUR IT!   **Just hit the burger icon to devour**</u></h2>
+        <div class="list-group">
+            {{#each burgers}}
+            {{#unless this.devoured}}
+            <form class="delete-form form-group" action="/{{this.id}}?_method=DELETE" method="POST">
+                {{this.burger_name}}
+                <span class="border border-primary"><input type="image" class="eat-icon"
+                        src="http://icons.iconarchive.com/icons/pixelkit/tasty-bites/256/hamburger-icon.png"
+                        alt="burger thumbnail" style="max-width: 50px" /></span>
+            </form>
+            {{/unless}}
+            {{/each}}
+        </div>
+    </div>
+    </br>
+
+    <div class="col-md-4 col-sm-12 col-xs-12">
+        <h2><u>DEVOURED BURGERS</u></h2>
+         <div class="list-group">
+            {{#each burgers}}
+            {{#if this.devoured}}
+            <form class="delete-form form-group" action="/{{this.id}}?_method=DELETE" method="POST">
+                {{this.burger_name}}
+            </form>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
