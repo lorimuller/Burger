@@ -64,7 +64,7 @@
     </div>
 </div> --}}
     <div class="col-md-4 col-sm-12 col-xs-12">
-        <h2><u>DEVOUR IT!   **Just hit the burger icon to devour**</u></h2>
+        <h1><u>DEVOUR IT!   **Push the burger icon to devour**</u></h1>
         <div class="list-group">
             {{#each burgers}}
             {{#unless this.devoured}}
@@ -80,8 +80,10 @@
     </div>
     </br>
 
+{{!-- At this time, this isn't working. It should take the burgers that have been devoured and then
+add to this list --}}
     <div class="col-md-4 col-sm-12 col-xs-12">
-        <h2><u>DEVOURED BURGERS</u></h2>
+        <h1><u>DEVOURED BURGERS</u></h1>
          <div class="list-group">
             {{#each burgers}}
             {{#if this.devoured}}

@@ -28,7 +28,7 @@ router.put("/:id", function(req, res) {
 // deletes a burger
 router.delete("/:id", function(req, res) {
     console.log('hey');
-	burger.deleteOne(req.params.id, function(result) {
+	burger.updateOne(req.params.id, function(result) {
 		res.redirect("/");
 	});
 });
